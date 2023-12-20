@@ -8,7 +8,8 @@ class SearchBar extends React.Component {
   };
   onSearch = (value) => {
     this.setState({ searchTerm: value });
-    console.log(value);
+    const { onFormSubmit } = this.props;
+    onFormSubmit(value);
   };
 
   render() {
