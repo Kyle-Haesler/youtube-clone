@@ -8,15 +8,19 @@ class App extends React.Component {
     videos: [],
     selectedVideo: null,
   };
+  componentDidMount() {
+    this.handleSubmit("potato");
+  }
+  onVideoSelect = (video) => this.setState({ selectedVideo: video });
   handleSubmit = async (searchTerm) => {
     const response = await youtube.get("search", { params: { q: searchTerm } });
     this.setState({
-      vidoes: response.data.items,
+      videos: response.data.items,
       selectedVideo: response.data.items[0],
     });
   };
   render() {
-    const { selectedVideo } = this.state;
+    const { selectedVideo, videos } = this.state;
     return (
       <>
         <Row>
@@ -29,8 +33,7 @@ class App extends React.Component {
             <VideoDetail video={selectedVideo} />
           </Col>
           <Col span={8}>
-            <h1>Hi</h1>
-            {/*VIDEO LIST */}
+            <VideoList videos={videos} onVideoSelect={this.onVideoSelect} />
           </Col>
         </Row>
       </>
