@@ -7,6 +7,7 @@ const VideoItem = ({ video, onVideoSelect }) => {
     <Card
       onClick={() => onVideoSelect(video)}
       hoverable
+      style={{ marginBottom: "20px" }}
       cover={<img alt="thumbnail" src={video.snippet.thumbnails.medium.url} />}
     >
       <Meta title={video.snippet.title} />

@@ -19,6 +19,7 @@ class SearchBar extends React.Component {
         enterButton="Search"
         size="large"
         onSearch={this.onSearch}
+        style={{ marginBottom: "20px" }}
       />
     );
   }

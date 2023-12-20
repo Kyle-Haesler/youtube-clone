@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row } from "antd";
 import youtube from "./api/youtube";
-import { SearchBar, VideoList, VideoDetail } from "./components";
+import { SearchBar, VideoList, VideoDetail, Header } from "./components";
 
 class App extends React.Component {
   state = {
@@ -22,21 +22,22 @@ class App extends React.Component {
   render() {
     const { selectedVideo, videos } = this.state;
     return (
-      <>
+      <div style={{ background: "black", padding: "10px" }}>
+        <Header />
         <Row>
           <Col span={24}>
             <SearchBar onFormSubmit={this.handleSubmit} />
           </Col>
         </Row>
         <Row>
-          <Col span={16}>
+          <Col span={18}>
             <VideoDetail video={selectedVideo} />
           </Col>
-          <Col span={8}>
+          <Col span={6}>
             <VideoList videos={videos} onVideoSelect={this.onVideoSelect} />
           </Col>
         </Row>
-      </>
+      </div>
     );
   }
 }

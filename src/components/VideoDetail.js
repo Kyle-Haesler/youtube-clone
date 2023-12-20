@@ -4,7 +4,7 @@ const VideoDetail = ({ video }) => {
   if (!video) return <div>Loading...</div>;
   const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
   return (
-    <>
+    <div style={{ height: "800px", marginRight: "20px" }}>
       <iframe
         frameBorder="0"
         height="100%"
@@ -12,10 +12,12 @@ const VideoDetail = ({ video }) => {
         title="Video Player"
         src={videoSrc}
       />
-      <h4>{video.snippet.title}</h4>
-      <h5>{video.snippet.channelTitle}</h5>
-      <h5>{video.snippet.description}</h5>
-    </>
+      <div style={{ background: "white" }}>
+        <h2>{video.snippet.title}</h2>
+        <h3>{video.snippet.channelTitle}</h3>
+        <h4>{video.snippet.description}</h4>
+      </div>
+    </div>
   );
 };
 
